@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SketchArt</string>
+    <string name="lets_draw">Let\'s Draw</string>
+    <string name="gallery">Gallery</string>
+    <string name="settings">Settings</string>
+    <string name="credits">Credits</string>
+</resources>
