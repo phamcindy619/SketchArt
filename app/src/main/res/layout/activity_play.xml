@@ -1,9 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".PlayActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <ImageButton
+            android:layout_width="@dimen/large_brush"
+            android:layout_height="@dimen/large_brush"
+            android:layout_margin="2dp"
+            android:background="#FFFF00"
+            android:contentDescription="@string/paint"
+            android:onClick="paintClicked"
+            android:src="@android:drawable/btn_dialog"
+            android:tag="#FFFF00" />
+
+        <ImageButton
+            android:layout_width="@dimen/large_brush"
+            android:layout_height="@dimen/large_brush"
+            android:layout_margin="2dp"
+            android:background="#FF6600"
+            android:contentDescription="@string/paint"
+            android:onClick="paintClicked"
+            android:src="@android:drawable/btn_dialog"
+            android:tag="#FF6600" />
+
+        <ImageButton
+            android:layout_width="@dimen/large_brush"
+            android:layout_height="@dimen/large_brush"
+            android:layout_margin="2dp"
+            android:background="#FF0000"
+            android:contentDescription="@string/paint"
+            android:onClick="paintClicked"
+            android:src="@android:drawable/btn_dialog"
+            android:tag="#FF0000" />
+    </LinearLayout>
+
+    <com.inphamous.sketchart.DrawView
+        android:id="@+id/draw"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="3dp"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/draw_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/brush"
+            android:src="@android:drawable/btn_minus" />
+
+        <ImageButton
+            android:id="@+id/erase_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/erase"
+            app:srcCompat="@android:drawable/ic_menu_delete" />
+
+        <ImageButton
+            android:id="@+id/save_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/save"
+            app:srcCompat="@android:drawable/ic_menu_save" />
+    </LinearLayout>
+
+</LinearLayout>
