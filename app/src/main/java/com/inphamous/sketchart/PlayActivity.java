@@ -33,6 +33,7 @@ public class PlayActivity extends Activity implements OnClickListener {
         setContentView(R.layout.activity_play);
 
         drawView = findViewById(R.id.draw);
+        drawView.setBrushSize(mediumBrush);
         LinearLayout paintLayout = findViewById(R.id.paint_colors);
         currPaint = (ImageButton) paintLayout.getChildAt(0);
         currPaint.setImageDrawable(getResources().getDrawable(R.drawable.paint_pressed));
@@ -65,8 +66,45 @@ public class PlayActivity extends Activity implements OnClickListener {
     public void onClick(View view) {
         // Draw selected
         if (view.getId() == R.id.draw_button) {
+            // Create dialog for brush size
             final Dialog brushDialog = new Dialog(this);
             brushDialog.setTitle("Brush size:");
+            brushDialog.setContentView(R.layout.brush_selector);
+
+            brushDialog.show();
+            // Small brush size has been clicked
+            ImageButton smallButton = brushDialog.findViewById(R.id.small_brush);
+            smallButton.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    drawView.setBrushSize(smallBrush);
+                    drawView.setLastBrushSize(smallBrush);
+                    brushDialog.dismiss();
+                }
+            });
+
+            // Medium brush size has been clicked
+            ImageButton mediumButton = brushDialog.findViewById(R.id.medium_brush);
+            mediumButton.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    drawView.setBrushSize(mediumBrush);
+                    drawView.setLastBrushSize(mediumBrush);
+                    brushDialog.dismiss();
+                }
+            });
+
+            // Large brush size has been clicked
+            ImageButton largeButton = brushDialog.findViewById(R.id.large_brush);
+            largeButton.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    drawView.setBrushSize(largeBrush);
+                    drawView.setLastBrushSize(largeBrush);
+                    brushDialog.dismiss();
+                }
+            });
+
             drawView.setErase(false);
         }
         // Erase selected

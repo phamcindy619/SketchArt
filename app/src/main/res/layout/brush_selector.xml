@@ -13,4 +13,20 @@
         android:contentDescription="@string/small"
         android:src="@drawable/small" />
 
+    <ImageButton
+        android:id="@+id/medium_brush"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:contentDescription="@string/medium"
+        android:src="@drawable/medium" />
+
+    <ImageButton
+        android:id="@+id/large_brush"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:contentDescription="@string/large"
+        android:src="@drawable/large" />
+
 </LinearLayout>

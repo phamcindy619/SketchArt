@@ -3,6 +3,7 @@ package com.inphamous.sketchart;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
+import android.util.TypedValue;
 import android.view.View;
 import android.content.Context;
 import android.util.AttributeSet;
@@ -21,7 +22,8 @@ public class DrawView extends View {
     private Canvas drawCanvas;           // Canvas
     private Bitmap canvasBitmap;         // Canvas Bitmap
     private boolean erase = false;       // Flag for erasing
-    private int strokeSize = 20;         // Stroke size
+    private float brushSize;             // Current brush size
+    private float lastBrushSize;         // Last brush size used
 
     // Default constructor
     public DrawView(Context context, AttributeSet attributeSet) {
@@ -30,6 +32,10 @@ public class DrawView extends View {
     }
 
     private void setUpDraw() {
+        // Set up brush sizes
+        brushSize = getResources().getInteger(R.integer.medium_size);
+        lastBrushSize = brushSize;
+
         // Set up the drawing area
         drawPath = new Path();
         drawPaint = new Paint();
@@ -39,7 +45,7 @@ public class DrawView extends View {
 
         // Set initial path
         drawPaint.setAntiAlias(true);
-        drawPaint.setStrokeWidth(strokeSize);
+        drawPaint.setStrokeWidth(brushSize);
         drawPaint.setStyle(Paint.Style.STROKE);
         drawPaint.setStrokeJoin(Paint.Join.ROUND);
         drawPaint.setStrokeCap(Paint.Cap.ROUND);
@@ -88,16 +94,33 @@ public class DrawView extends View {
         return true;
     }
 
+    // Change brush color
     public void setColor(String newColor) {
         invalidate();
         paintColor = Color.parseColor(newColor);
         drawPaint.setColor(paintColor);
     }
 
+    // Switch from brush to eraser
     public void setErase(boolean isErase) {
         erase = isErase;
         if (erase) {
             drawPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
         }
+    }
+
+    // Change brush size
+    public void setBrushSize(float newSize) {
+        float pixelAmount = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, newSize, getResources().getDisplayMetrics());
+        brushSize = pixelAmount;
+        drawPaint.setStrokeWidth(brushSize);
+    }
+
+    public void setLastBrushSize(float lastSize) {
+        lastBrushSize = lastSize;
+    }
+
+    public float getLastBrushSize() {
+        return lastBrushSize;
     }
 }
