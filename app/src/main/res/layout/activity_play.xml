@@ -4,43 +4,59 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     android:orientation="vertical"
     tools:context=".PlayActivity">
 
     <LinearLayout
+        android:id="@+id/paint_colors"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
         <ImageButton
+            android:id="@+id/black_button"
+            android:layout_width="@dimen/large_brush"
+            android:layout_height="@dimen/large_brush"
+            android:layout_margin="2dp"
+            android:background="#000000"
+            android:contentDescription="@string/paint"
+            android:onClick="paintClicked"
+            android:src="@drawable/paint"
+            android:tag="#000000" />
+
+        <ImageButton
+            android:id="@+id/yellow_button"
             android:layout_width="@dimen/large_brush"
             android:layout_height="@dimen/large_brush"
             android:layout_margin="2dp"
             android:background="#FFFF00"
             android:contentDescription="@string/paint"
             android:onClick="paintClicked"
-            android:src="@android:drawable/btn_dialog"
+            android:src="@drawable/paint"
             android:tag="#FFFF00" />
 
         <ImageButton
+            android:id="@+id/orange_button"
             android:layout_width="@dimen/large_brush"
             android:layout_height="@dimen/large_brush"
             android:layout_margin="2dp"
             android:background="#FF6600"
             android:contentDescription="@string/paint"
             android:onClick="paintClicked"
-            android:src="@android:drawable/btn_dialog"
+            android:src="@drawable/paint"
             android:tag="#FF6600" />
 
         <ImageButton
+            android:id="@+id/red_button"
             android:layout_width="@dimen/large_brush"
             android:layout_height="@dimen/large_brush"
             android:layout_margin="2dp"
             android:background="#FF0000"
             android:contentDescription="@string/paint"
             android:onClick="paintClicked"
-            android:src="@android:drawable/btn_dialog"
+            android:src="@drawable/paint"
             android:tag="#FF0000" />
     </LinearLayout>
 
@@ -52,31 +68,39 @@
         android:layout_weight="1" />
 
     <LinearLayout
+        android:id="@+id/toolbar"
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:layout_height="70dp"
         android:layout_gravity="center"
         android:orientation="horizontal">
 
         <ImageButton
+            android:id="@+id/new_button"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/start_new"
+            android:src="@drawable/create_new_icon" />
+
+        <ImageButton
             android:id="@+id/draw_button"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:contentDescription="@string/brush"
-            android:src="@android:drawable/btn_minus" />
+            android:src="@drawable/brush_icon" />
 
         <ImageButton
             android:id="@+id/erase_button"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:contentDescription="@string/erase"
-            app:srcCompat="@android:drawable/ic_menu_delete" />
+            android:src="@drawable/eraser_icon" />
 
         <ImageButton
             android:id="@+id/save_button"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:contentDescription="@string/save"
-            app:srcCompat="@android:drawable/ic_menu_save" />
+            android:src="@drawable/save_icon" />
     </LinearLayout>
 
 </LinearLayout>
