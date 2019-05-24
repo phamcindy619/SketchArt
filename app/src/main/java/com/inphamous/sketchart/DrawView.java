@@ -2,7 +2,6 @@ package com.inphamous.sketchart;
 
 import android.graphics.Color;
 import android.graphics.PorterDuff;
-import android.graphics.PorterDuffXfermode;
 import android.util.TypedValue;
 import android.view.View;
 import android.content.Context;

@@ -1,12 +1,23 @@
 package com.inphamous.sketchart;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.Dialog;
+import android.app.usage.StorageStatsManager;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.media.Image;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Environment;
+import android.os.storage.StorageManager;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,6 +31,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
+import java.net.URI;
 import java.util.UUID;
 import android.provider.MediaStore;
 import android.app.AlertDialog;
@@ -196,36 +208,13 @@ public class PlayActivity extends Activity implements OnClickListener {
         // Save selected
         else if (view.getId() == R.id.save_button) {
             // Confirm that user wants to save their drawing
-            AlertDialog.Builder saveDialog = new AlertDialog.Builder(this);
+            final AlertDialog.Builder saveDialog = new AlertDialog.Builder(this);
             saveDialog.setTitle("Save drawing");
             saveDialog.setMessage("Save drawing to Gallery?");
             saveDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    // Convert view into image
-                    Bitmap bitmap = Bitmap.createBitmap(drawView.getWidth(), drawView.getHeight(), Bitmap.Config.ARGB_8888);
-                    drawView.draw(new Canvas(bitmap));
-
-                    File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
-                    File file = new File(path, UUID.randomUUID().toString() + ".jpg");
-                    Log.d(LOG_TAG, "The path is: " + path);
-
-                    // Save the image in SD card
-                    try {
-                        path.mkdirs();
-                        Log.d(LOG_TAG, "Pictures directory found.");
-                        OutputStream os = new FileOutputStream(file);
-                        Log.d(LOG_TAG, "Created output stream.");
-                        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, os);
-                        Log.d(LOG_TAG, "Bitmap is saved.");
-                        os.close();
-                        Toast savedToast = Toast.makeText(getApplicationContext(), "Drawing saved to Gallery!", Toast.LENGTH_SHORT);
-                        savedToast.show();
-                    }
-                    catch (Exception e) {
-                        Toast unsavedToast = Toast.makeText(getApplicationContext(), "Oops! Image could not be saved.", Toast.LENGTH_SHORT);
-                        unsavedToast.show();
-                    }
+                    saveBitmap();
                 }
             });
             saveDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -235,6 +224,27 @@ public class PlayActivity extends Activity implements OnClickListener {
                 }
             });
             saveDialog.show();
+        }
+    }
+
+    // Save drawing to Gallery
+    private void saveBitmap() {
+        // Get the drawing
+        Bitmap bitmap = Bitmap.createBitmap(drawView.getWidth(), drawView.getHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        canvas.drawColor(Color.WHITE);
+        drawView.draw(canvas);
+        // Save to gallery
+        String imageSaved = MediaStore.Images.Media.insertImage(getContentResolver(), bitmap, "SketchArt-" + UUID.randomUUID().toString() + ".jpg", "drawing");
+        // Image has been saved successfully
+        if (imageSaved != null) {
+            Toast savedToast = Toast.makeText(getApplicationContext(), "Drawing saved to Gallery!", Toast.LENGTH_SHORT);
+            savedToast.show();
+        }
+        // Image was not saved
+        else {
+            Toast unsavedToast = Toast.makeText(getApplicationContext(), "Oops! Drawing could not be saved.", Toast.LENGTH_SHORT);
+            unsavedToast.show();
         }
     }
 }
