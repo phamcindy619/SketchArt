@@ -34,6 +34,7 @@ public class PlayActivity extends Activity implements OnClickListener {
 
         drawView = findViewById(R.id.draw);
         drawView.setBrushSize(mediumBrush);
+
         LinearLayout paintLayout = findViewById(R.id.paint_colors);
         currPaint = (ImageButton) paintLayout.getChildAt(0);
         currPaint.setImageDrawable(getResources().getDrawable(R.drawable.paint_pressed));
@@ -51,6 +52,7 @@ public class PlayActivity extends Activity implements OnClickListener {
 
     public void paintClicked(View view) {
         drawView.setErase(false);
+        drawView.setBrushSize(drawView.getLastBrushSize());
         // Update color
         if (view != currPaint) {
             ImageButton imageView = (ImageButton) view;
@@ -79,6 +81,7 @@ public class PlayActivity extends Activity implements OnClickListener {
                 public void onClick(View v) {
                     drawView.setBrushSize(smallBrush);
                     drawView.setLastBrushSize(smallBrush);
+                    drawView.setErase(false);
                     brushDialog.dismiss();
                 }
             });
@@ -90,6 +93,7 @@ public class PlayActivity extends Activity implements OnClickListener {
                 public void onClick(View v) {
                     drawView.setBrushSize(mediumBrush);
                     drawView.setLastBrushSize(mediumBrush);
+                    drawView.setErase(false);
                     brushDialog.dismiss();
                 }
             });
@@ -101,15 +105,50 @@ public class PlayActivity extends Activity implements OnClickListener {
                 public void onClick(View v) {
                     drawView.setBrushSize(largeBrush);
                     drawView.setLastBrushSize(largeBrush);
+                    drawView.setErase(false);
                     brushDialog.dismiss();
                 }
             });
-
-            drawView.setErase(false);
         }
         // Erase selected
         else if (view.getId() == R.id.erase_button) {
-            drawView.setErase(true);
+            final Dialog eraserDialog = new Dialog(this);
+            eraserDialog.setTitle("Eraser size:");
+            eraserDialog.setContentView(R.layout.brush_selector);
+
+            eraserDialog.show();
+            // Small eraser size has been clicked
+            ImageButton smallButton = eraserDialog.findViewById(R.id.small_brush);
+            smallButton.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    drawView.setErase(true);
+                    drawView.setBrushSize(smallBrush);
+                    eraserDialog.dismiss();
+                }
+            });
+
+            // Medium eraser size has been clicked
+            ImageButton mediumButton = eraserDialog.findViewById(R.id.medium_brush);
+            mediumButton.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    drawView.setErase(true);
+                    drawView.setBrushSize(mediumBrush);
+                    eraserDialog.dismiss();
+                }
+            });
+
+            // Large eraser size has been clicked
+            ImageButton largeButton = eraserDialog.findViewById(R.id.large_brush);
+            largeButton.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    drawView.setErase(true);
+                    drawView.setBrushSize(largeBrush);
+                    eraserDialog.dismiss();
+                }
+            });
         }
     }
 }

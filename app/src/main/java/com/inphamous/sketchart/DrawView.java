@@ -18,6 +18,7 @@ public class DrawView extends View {
     private Paint drawPaint;    // Drawings and Canvas paint
     private Paint canvasPaint;
     private int paintColor = 0x000000;   // Initial color
+    private int lastColorUsed;           // Last paint color used
     private int backgroundColor = 0xFFFFFF; // Background canvas color
     private Canvas drawCanvas;           // Canvas
     private Bitmap canvasBitmap;         // Canvas Bitmap
@@ -104,8 +105,13 @@ public class DrawView extends View {
     // Switch from brush to eraser
     public void setErase(boolean isErase) {
         erase = isErase;
+        // Switch to erase mode
         if (erase) {
-            drawPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+            drawPaint.setColor(Color.parseColor("#FFFFFF"));
+        }
+        // Switch back to paint mode
+        else {
+            drawPaint.setColor(paintColor);
         }
     }
 
