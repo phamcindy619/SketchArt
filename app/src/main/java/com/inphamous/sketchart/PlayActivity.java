@@ -17,11 +17,13 @@ import android.content.DialogInterface;
 import android.widget.Toast;
 
 public class PlayActivity extends Activity implements OnClickListener {
-    private DrawView drawView;
+    private DrawView drawView;      // Custom view
     // UI
     private ImageButton currPaint;
     private ImageButton drawButton;
     private ImageButton eraseButton;
+    private ImageButton newButton;
+
     // Brush sizes
     private float smallBrush;
     private float mediumBrush;
@@ -48,6 +50,9 @@ public class PlayActivity extends Activity implements OnClickListener {
 
         eraseButton = findViewById(R.id.erase_button);
         eraseButton.setOnClickListener(this);
+
+        newButton = findViewById(R.id.new_button);
+        newButton.setOnClickListener(this);
     }
 
     public void paintClicked(View view) {
@@ -149,6 +154,27 @@ public class PlayActivity extends Activity implements OnClickListener {
                     eraserDialog.dismiss();
                 }
             });
+        }
+        // New selected
+        else if (view.getId() == R.id.new_button) {
+            // Confirm that user wants to start new drawing
+            AlertDialog.Builder newDialog = new AlertDialog.Builder(this);
+            newDialog.setTitle("New drawing");
+            newDialog.setMessage("Start new drawing? (You will lose the current drawing.)");
+            newDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    drawView.startNew();
+                    dialog.dismiss();
+                }
+            });
+            newDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.cancel();
+                }
+            });
+            newDialog.show();
         }
     }
 }
