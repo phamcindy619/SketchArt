@@ -27,15 +27,15 @@
             android:tag="#000000" />
 
         <ImageButton
-            android:id="@+id/yellow_button"
+            android:id="@+id/red_button"
             android:layout_width="@dimen/large_brush"
             android:layout_height="@dimen/large_brush"
             android:layout_margin="2dp"
-            android:background="#FFFF00"
+            android:background="#FF0000"
             android:contentDescription="@string/paint"
             android:onClick="paintClicked"
             android:src="@drawable/paint"
-            android:tag="#FFFF00" />
+            android:tag="#FF0000" />
 
         <ImageButton
             android:id="@+id/orange_button"
@@ -49,15 +49,70 @@
             android:tag="#FF6600" />
 
         <ImageButton
-            android:id="@+id/red_button"
+            android:id="@+id/yellow_button"
             android:layout_width="@dimen/large_brush"
             android:layout_height="@dimen/large_brush"
             android:layout_margin="2dp"
-            android:background="#FF0000"
+            android:background="#FFFF00"
             android:contentDescription="@string/paint"
             android:onClick="paintClicked"
             android:src="@drawable/paint"
-            android:tag="#FF0000" />
+            android:tag="#FFFF00" />
+
+        <ImageButton
+            android:id="@+id/lightgreen_button"
+            android:layout_width="@dimen/large_brush"
+            android:layout_height="@dimen/large_brush"
+            android:layout_margin="2dp"
+            android:background="#00FF00"
+            android:contentDescription="@string/paint"
+            android:onClick="paintClicked"
+            android:src="@drawable/paint"
+            android:tag="#00FF00" />
+
+        <ImageButton
+            android:id="@+id/darkgreen_button"
+            android:layout_width="@dimen/large_brush"
+            android:layout_height="@dimen/large_brush"
+            android:layout_margin="2dp"
+            android:background="#008000"
+            android:contentDescription="@string/paint"
+            android:onClick="paintClicked"
+            android:src="@drawable/paint"
+            android:tag="#008000" />
+
+        <ImageButton
+            android:id="@+id/lightblue_button"
+            android:layout_width="@dimen/large_brush"
+            android:layout_height="@dimen/large_brush"
+            android:layout_margin="2dp"
+            android:background="#00FFFF"
+            android:contentDescription="@string/paint"
+            android:onClick="paintClicked"
+            android:src="@drawable/paint"
+            android:tag="#00FFFF" />
+
+        <ImageButton
+            android:id="@+id/darkblue_button"
+            android:layout_width="@dimen/large_brush"
+            android:layout_height="@dimen/large_brush"
+            android:layout_margin="2dp"
+            android:background="#0000FF"
+            android:contentDescription="@string/paint"
+            android:onClick="paintClicked"
+            android:src="@drawable/paint"
+            android:tag="#0000FF" />
+
+        <ImageButton
+            android:id="@+id/purple_button"
+            android:layout_width="@dimen/large_brush"
+            android:layout_height="@dimen/large_brush"
+            android:layout_margin="2dp"
+            android:background="#800080"
+            android:contentDescription="@string/paint"
+            android:onClick="paintClicked"
+            android:src="@drawable/paint"
+            android:tag="#800080" />
     </LinearLayout>
 
     <com.inphamous.sketchart.DrawView
