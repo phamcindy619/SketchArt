@@ -18,6 +18,7 @@ import android.widget.Toast;
 import java.util.UUID;
 
 public class PlayActivity extends Activity implements OnClickListener {
+
     private DrawView drawView;      // Custom view
     // UI
     private ImageButton currPaint;

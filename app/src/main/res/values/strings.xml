@@ -14,4 +14,6 @@
     <string name="small">Small</string>
     <string name="medium">Medium</string>
     <string name="large">Large</string>
+
+    <string name="game_logo">Game logo</string>
 </resources>

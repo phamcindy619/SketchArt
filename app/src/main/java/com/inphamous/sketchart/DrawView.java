@@ -13,6 +13,8 @@ import android.graphics.Path;
 import android.view.MotionEvent;
 
 public class DrawView extends View {
+    private static final String LOG_TAG = PlayActivity.class.getSimpleName();
+
     private Path drawPath;      // Drawing path
     private Paint drawPaint;    // Drawings and Canvas paint
     private Paint canvasPaint;
@@ -28,6 +30,7 @@ public class DrawView extends View {
     public DrawView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         setUpDraw();
+        setSaveEnabled(true);
     }
 
     private void setUpDraw() {
