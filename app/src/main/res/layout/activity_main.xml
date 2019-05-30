@@ -15,12 +15,11 @@
         android:layout_gravity="center"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:adjustViewBounds="false"
-        tools:layout_editor_absoluteY="128dp"
-        tools:srcCompat="@drawable/gamelogo" />
+        android:src="@drawable/gamelogo" />
 
     <Button
         android:id="@+id/play_button"
@@ -28,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:onClick="launchPlayActivity"

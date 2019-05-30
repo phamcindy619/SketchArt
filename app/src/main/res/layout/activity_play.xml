@@ -137,12 +137,21 @@
             android:tag="#8B4513" />
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/art"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:background="@drawable/border">
+    </LinearLayout>
+
     <com.inphamous.sketchart.DrawView
         android:id="@+id/draw"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginBottom="3dp"
-        android:layout_weight="1" />
+        android:layout_weight="2" />
 
     <LinearLayout
         android:id="@+id/toolbar"
