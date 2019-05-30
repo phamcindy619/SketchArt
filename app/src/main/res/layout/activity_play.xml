@@ -113,6 +113,28 @@
             android:onClick="paintClicked"
             android:src="@drawable/paint"
             android:tag="#800080" />
+
+        <ImageButton
+            android:id="@+id/pink_button"
+            android:layout_width="@dimen/large_brush"
+            android:layout_height="@dimen/large_brush"
+            android:layout_margin="2dp"
+            android:background="#FFC0CB"
+            android:contentDescription="@string/paint"
+            android:onClick="paintClicked"
+            android:src="@drawable/paint"
+            android:tag="#FFC0CB" />
+
+        <ImageButton
+            android:id="@+id/brown_button"
+            android:layout_width="@dimen/large_brush"
+            android:layout_height="@dimen/large_brush"
+            android:layout_margin="2dp"
+            android:background="#8B4513"
+            android:contentDescription="@string/paint"
+            android:onClick="paintClicked"
+            android:src="@drawable/paint"
+            android:tag="#8B4513" />
     </LinearLayout>
 
     <com.inphamous.sketchart.DrawView

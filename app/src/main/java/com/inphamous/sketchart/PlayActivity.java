@@ -1,42 +1,21 @@
 package com.inphamous.sketchart;
 
-import android.Manifest;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Dialog;
-import android.app.usage.StorageStatsManager;
-import android.content.Intent;
-import android.content.pm.PackageManager;
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Paint;
-import android.media.Image;
-import android.net.Uri;
-import android.os.Build;
-import android.os.Environment;
-import android.os.storage.StorageManager;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.content.FileProvider;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.provider.MediaStore;
 import android.view.View;
-import android.widget.Button;
+import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.view.View.OnClickListener;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.OutputStream;
-import java.net.URI;
-import java.util.UUID;
-import android.provider.MediaStore;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.widget.Toast;
+
+import java.util.UUID;
 
 public class PlayActivity extends Activity implements OnClickListener {
     private DrawView drawView;      // Custom view
@@ -65,6 +44,8 @@ public class PlayActivity extends Activity implements OnClickListener {
 
         LinearLayout paintLayout = findViewById(R.id.paint_colors);
         currPaint = (ImageButton) paintLayout.getChildAt(0);
+        drawView.setColor(currPaint.getTag().toString());
+        drawView.setBrushSize(drawView.getLastBrushSize());
         currPaint.setImageDrawable(getResources().getDrawable(R.drawable.paint_pressed));
 
         smallBrush = getResources().getInteger(R.integer.small_size);

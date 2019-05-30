@@ -17,7 +17,6 @@ public class DrawView extends View {
     private Paint drawPaint;    // Drawings and Canvas paint
     private Paint canvasPaint;
     private int paintColor = 0x000000;   // Initial color
-    private int lastColorUsed;           // Last paint color used
     private int backgroundColor = 0xFFFFFF; // Background canvas color
     private Canvas drawCanvas;           // Canvas
     private Bitmap canvasBitmap;         // Canvas Bitmap
@@ -134,5 +133,7 @@ public class DrawView extends View {
         // Clear canvas and update display
         drawCanvas.drawColor(0, PorterDuff.Mode.CLEAR);
         invalidate();
+        setBrushSize(lastBrushSize);
+        drawPaint.setColor(paintColor);
     }
 }
