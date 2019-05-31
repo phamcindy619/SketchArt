@@ -15,5 +15,7 @@
     <string name="medium">Medium</string>
     <string name="large">Large</string>
 
-    <string name="game_logo">Game logo</string>
+    <string name="game_logo">Game Logo</string>
+    <string name="left_button">Left</string>
+    <string name="right_button">Right</string>
 </resources>

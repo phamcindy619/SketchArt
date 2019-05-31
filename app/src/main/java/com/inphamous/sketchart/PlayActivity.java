@@ -12,6 +12,7 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -26,6 +27,10 @@ public class PlayActivity extends Activity implements OnClickListener {
     private ImageButton eraseButton;
     private ImageButton newButton;
     private ImageButton saveButton;
+
+    private ImageButton leftButton;
+    private ImageButton rightButton;
+    private ImageView artImage;
 
     // Brush sizes
     private float smallBrush;
@@ -64,6 +69,10 @@ public class PlayActivity extends Activity implements OnClickListener {
 
         saveButton = findViewById(R.id.save_button);
         saveButton.setOnClickListener(this);
+
+        leftButton = findViewById(R.id.left_button);
+        rightButton = findViewById(R.id.right_button);
+        artImage = findViewById(R.id.artImage);
     }
 
     public void paintClicked(View view) {
@@ -228,5 +237,10 @@ public class PlayActivity extends Activity implements OnClickListener {
             Toast unsavedToast = Toast.makeText(getApplicationContext(), "Oops! Drawing could not be saved.", Toast.LENGTH_SHORT);
             unsavedToast.show();
         }
+    }
+
+    // Switch the image example
+    public void changeImage(View view) {
+
     }
 }
