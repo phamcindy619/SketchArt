@@ -158,7 +158,6 @@
             android:background="@android:color/white"
             android:contentDescription="@string/left_button"
             android:src="@drawable/left_button"
-            android:onClick="changeImage"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -175,7 +174,6 @@
             android:background="@android:color/white"
             android:contentDescription="@string/right_button"
             android:src="@drawable/right_button"
-            android:onClick="changeImage"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

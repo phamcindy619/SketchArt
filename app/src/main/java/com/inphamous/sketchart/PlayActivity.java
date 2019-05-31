@@ -4,11 +4,14 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
@@ -28,9 +31,16 @@ public class PlayActivity extends Activity implements OnClickListener {
     private ImageButton newButton;
     private ImageButton saveButton;
 
+    // Art
     private ImageButton leftButton;
     private ImageButton rightButton;
     private ImageView artImage;
+    private Integer[] imageIds = {R.drawable.bike, R.drawable.helicopter, R.drawable.car, R.drawable.rocket, R.drawable.truck,
+                    R.drawable.palace, R.drawable.school, R.drawable.nature, R.drawable.cake, R.drawable.cupcake, R.drawable.ice_cream,
+                    R.drawable.hamburger, R.drawable.pizza,R.drawable.hot_dog, R.drawable.cherry, R.drawable.pineapple,
+                    R.drawable.watermelon, R.drawable.dolphin, R.drawable.german_shepard, R.drawable.octopus, R.drawable.pig,
+                    R.drawable.puffin_bird, R.drawable.turtle, R.drawable.crab};
+    private int currIndex = 0;
 
     // Brush sizes
     private float smallBrush;
@@ -72,7 +82,13 @@ public class PlayActivity extends Activity implements OnClickListener {
 
         leftButton = findViewById(R.id.left_button);
         rightButton = findViewById(R.id.right_button);
+        leftButton.setOnClickListener(this);
+        rightButton.setOnClickListener(this);
         artImage = findViewById(R.id.artImage);
+
+        // Display the first image upon opening
+        Log.d(LOG_TAG, "Index: " + currIndex);
+        artImage.setImageResource(imageIds[currIndex]);
     }
 
     public void paintClicked(View view) {
@@ -216,6 +232,26 @@ public class PlayActivity extends Activity implements OnClickListener {
             });
             saveDialog.show();
         }
+        // Get previous image
+        else if (view.getId() == R.id.left_button) {
+            // Decrement index
+            if (currIndex == 0)
+                currIndex = imageIds.length - 1;
+            else
+                currIndex--;
+            // Change image
+            artImage.setImageResource(imageIds[currIndex]);
+        }
+        // Get next image
+        else if (view.getId() == R.id.right_button) {
+            // Increment index
+            if (currIndex == imageIds.length - 1)
+                currIndex = 0;
+            else
+                currIndex++;
+            // Change image
+            artImage.setImageResource(imageIds[currIndex]);
+        }
     }
 
     // Save drawing to Gallery
@@ -237,10 +273,5 @@ public class PlayActivity extends Activity implements OnClickListener {
             Toast unsavedToast = Toast.makeText(getApplicationContext(), "Oops! Drawing could not be saved.", Toast.LENGTH_SHORT);
             unsavedToast.show();
         }
-    }
-
-    // Switch the image example
-    public void changeImage(View view) {
-
     }
 }
