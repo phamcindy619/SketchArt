@@ -12,8 +12,8 @@
         android:id="@+id/paint_colors"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="3dp"
         android:layout_gravity="center"
+        android:layout_margin="3dp"
         android:orientation="horizontal">
 
         <ImageButton
@@ -142,10 +142,10 @@
         android:id="@+id/art"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:orientation="horizontal"
         android:layout_margin="2dp"
         android:layout_weight="1"
-        android:background="@drawable/border">
+        android:background="@drawable/border"
+        android:orientation="horizontal">
 
         <ImageButton
             android:id="@+id/left_button"
@@ -187,7 +187,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/art" />
     </android.support.constraint.ConstraintLayout>
 
     <com.inphamous.sketchart.DrawView
@@ -199,46 +200,93 @@
 
     <LinearLayout
         android:id="@+id/toolbar"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:baselineAligned="false">
 
-        <ImageButton
-            android:id="@+id/new_button"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/brush_sizes"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:background="@android:color/white"
-            android:layout_margin="2dp"
-            android:contentDescription="@string/start_new"
-            android:src="@drawable/create_new_icon" />
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:orientation="horizontal">
 
-        <ImageButton
-            android:id="@+id/draw_button"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:background="@android:color/white"
-            android:layout_margin="2dp"
-            android:contentDescription="@string/brush"
-            android:src="@drawable/brush_icon" />
+            <ImageButton
+                android:id="@+id/small_brush"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:background="@android:color/white"
+                android:contentDescription="@string/small"
+                android:src="@drawable/small" />
 
-        <ImageButton
-            android:id="@+id/erase_button"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:background="@android:color/white"
-            android:layout_margin="2dp"
-            android:contentDescription="@string/erase"
-            android:src="@drawable/eraser_icon" />
+            <ImageButton
+                android:id="@+id/medium_brush"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:background="@android:color/white"
+                android:contentDescription="@string/medium"
+                android:src="@drawable/medium" />
 
-        <ImageButton
-            android:id="@+id/save_button"
+            <ImageButton
+                android:id="@+id/large_brush"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:background="@android:color/white"
+                android:contentDescription="@string/large"
+                android:src="@drawable/large" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tools"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:background="@android:color/white"
-            android:layout_margin="2dp"
-            android:contentDescription="@string/save"
-            android:src="@drawable/save_icon" />
+            android:layout_height="60dp">
+
+            <ImageButton
+                android:id="@+id/new_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:background="@android:color/white"
+                android:contentDescription="@string/start_new"
+                android:src="@drawable/create_new_icon" />
+
+            <ImageButton
+                android:id="@+id/draw_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:background="@android:color/white"
+                android:contentDescription="@string/brush"
+                android:src="@drawable/brush_icon" />
+
+            <ImageButton
+                android:id="@+id/erase_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:background="@android:color/white"
+                android:contentDescription="@string/erase"
+                android:src="@drawable/eraser_icon" />
+
+            <ImageButton
+                android:id="@+id/save_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:background="@android:color/white"
+                android:contentDescription="@string/save"
+                android:src="@drawable/save_icon" />
+        </LinearLayout>
+
     </LinearLayout>
 
 </LinearLayout>

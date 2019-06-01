@@ -2,13 +2,10 @@ package com.inphamous.sketchart;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.DialogInterface;
-import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
@@ -30,6 +27,9 @@ public class PlayActivity extends Activity implements OnClickListener {
     private ImageButton eraseButton;
     private ImageButton newButton;
     private ImageButton saveButton;
+    private ImageButton smallButton;
+    private ImageButton mediumButton;
+    private ImageButton largeButton;
 
     // Art
     private ImageButton leftButton;
@@ -63,6 +63,13 @@ public class PlayActivity extends Activity implements OnClickListener {
         drawView.setColor(currPaint.getTag().toString());
         drawView.setBrushSize(drawView.getLastBrushSize());
         currPaint.setImageDrawable(getResources().getDrawable(R.drawable.paint_pressed));
+
+        smallButton = findViewById(R.id.small_brush);
+        smallButton.setOnClickListener(this);
+        mediumButton = findViewById(R.id.medium_brush);
+        mediumButton.setOnClickListener(this);
+        largeButton = findViewById(R.id.large_brush);
+        largeButton.setOnClickListener(this);
 
         smallBrush = getResources().getInteger(R.integer.small_size);
         mediumBrush = getResources().getInteger(R.integer.medium_size);
@@ -109,87 +116,11 @@ public class PlayActivity extends Activity implements OnClickListener {
     public void onClick(View view) {
         // Draw selected
         if (view.getId() == R.id.draw_button) {
-            // Create dialog for brush size
-            final Dialog brushDialog = new Dialog(this);
-            brushDialog.setTitle("Brush size:");
-            brushDialog.setContentView(R.layout.brush_selector);
-
-            // Small brush size has been clicked
-            ImageButton smallButton = brushDialog.findViewById(R.id.small_brush);
-            smallButton.setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    drawView.setBrushSize(smallBrush);
-                    drawView.setLastBrushSize(smallBrush);
-                    drawView.setErase(false);
-                    brushDialog.dismiss();
-                }
-            });
-
-            // Medium brush size has been clicked
-            ImageButton mediumButton = brushDialog.findViewById(R.id.medium_brush);
-            mediumButton.setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    drawView.setBrushSize(mediumBrush);
-                    drawView.setLastBrushSize(mediumBrush);
-                    drawView.setErase(false);
-                    brushDialog.dismiss();
-                }
-            });
-
-            // Large brush size has been clicked
-            ImageButton largeButton = brushDialog.findViewById(R.id.large_brush);
-            largeButton.setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    drawView.setBrushSize(largeBrush);
-                    drawView.setLastBrushSize(largeBrush);
-                    drawView.setErase(false);
-                    brushDialog.dismiss();
-                }
-            });
-            brushDialog.show();
+            drawView.setErase(false);
         }
         // Erase selected
         else if (view.getId() == R.id.erase_button) {
-            final Dialog eraserDialog = new Dialog(this);
-            eraserDialog.setTitle("Eraser size:");
-            eraserDialog.setContentView(R.layout.brush_selector);
-
-            // Small eraser size has been clicked
-            ImageButton smallButton = eraserDialog.findViewById(R.id.small_brush);
-            smallButton.setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    drawView.setErase(true);
-                    drawView.setBrushSize(smallBrush);
-                    eraserDialog.dismiss();
-                }
-            });
-
-            // Medium eraser size has been clicked
-            ImageButton mediumButton = eraserDialog.findViewById(R.id.medium_brush);
-            mediumButton.setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    drawView.setErase(true);
-                    drawView.setBrushSize(mediumBrush);
-                    eraserDialog.dismiss();
-                }
-            });
-
-            // Large eraser size has been clicked
-            ImageButton largeButton = eraserDialog.findViewById(R.id.large_brush);
-            largeButton.setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    drawView.setErase(true);
-                    drawView.setBrushSize(largeBrush);
-                    eraserDialog.dismiss();
-                }
-            });
-            eraserDialog.show();
+            drawView.setErase(true);
         }
         // New selected
         else if (view.getId() == R.id.new_button) {
@@ -251,6 +182,21 @@ public class PlayActivity extends Activity implements OnClickListener {
                 currIndex++;
             // Change image
             artImage.setImageResource(imageIds[currIndex]);
+        }
+        // Set small brush size
+        else if (view.getId() == R.id.small_brush) {
+            drawView.setBrushSize(smallBrush);
+            drawView.setLastBrushSize(smallBrush);
+        }
+        // Set medium brush size
+        else if (view.getId() == R.id.medium_brush) {
+            drawView.setBrushSize(mediumBrush);
+            drawView.setLastBrushSize(mediumBrush);
+        }
+        // Set large brush size
+        else if (view.getId() == R.id.large_brush) {
+            drawView.setBrushSize(largeBrush);
+            drawView.setLastBrushSize(largeBrush);
         }
     }
 
