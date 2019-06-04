@@ -16,7 +16,8 @@
     <string name="large">Large</string>
 
     <string name="game_logo">Game Logo</string>
-    <string name="left_button">Left</string>
-    <string name="right_button">Right</string>
+    <string name="previous">Previous</string>
+    <string name="next">Next</string>
+
     <string name="art">Art Image</string>
 </resources>

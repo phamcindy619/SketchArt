@@ -148,7 +148,7 @@
         android:orientation="horizontal">
 
         <ImageButton
-            android:id="@+id/left_button"
+            android:id="@+id/prev_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -157,14 +157,14 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:background="@android:color/white"
-            android:contentDescription="@string/left_button"
+            android:contentDescription="@string/previous"
             android:src="@drawable/left_button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
-            android:id="@+id/right_button"
+            android:id="@+id/next_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -173,7 +173,7 @@
             android:layout_marginRight="2dp"
             android:layout_marginBottom="8dp"
             android:background="@android:color/white"
-            android:contentDescription="@string/right_button"
+            android:contentDescription="@string/next"
             android:src="@drawable/right_button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

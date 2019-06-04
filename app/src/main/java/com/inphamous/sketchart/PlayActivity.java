@@ -34,8 +34,8 @@ public class PlayActivity extends Activity implements OnClickListener {
     private ImageButton largeButton;
 
     // Art
-    private ImageButton leftButton;
-    private ImageButton rightButton;
+    private ImageButton prevButton;
+    private ImageButton nextButton;
     private ImageView artImage;
     private Integer[] imageIds = {R.drawable.bike, R.drawable.helicopter, R.drawable.car, R.drawable.rocket, R.drawable.truck,
                     R.drawable.palace, R.drawable.school, R.drawable.nature, R.drawable.cake, R.drawable.cupcake, R.drawable.ice_cream,
@@ -89,10 +89,10 @@ public class PlayActivity extends Activity implements OnClickListener {
         saveButton = findViewById(R.id.save_button);
         saveButton.setOnClickListener(this);
 
-        leftButton = findViewById(R.id.left_button);
-        rightButton = findViewById(R.id.right_button);
-        leftButton.setOnClickListener(this);
-        rightButton.setOnClickListener(this);
+        prevButton = findViewById(R.id.prev_button);
+        nextButton = findViewById(R.id.next_button);
+        prevButton.setOnClickListener(this);
+        nextButton.setOnClickListener(this);
         artImage = findViewById(R.id.artImage);
 
         // Display the first image upon opening
@@ -166,7 +166,7 @@ public class PlayActivity extends Activity implements OnClickListener {
             saveDialog.show();
         }
         // Get previous image
-        else if (view.getId() == R.id.left_button) {
+        else if (view.getId() == R.id.prev_button) {
             // Decrement index
             if (currIndex == 0)
                 currIndex = imageIds.length - 1;
@@ -176,7 +176,7 @@ public class PlayActivity extends Activity implements OnClickListener {
             artImage.setImageResource(imageIds[currIndex]);
         }
         // Get next image
-        else if (view.getId() == R.id.right_button) {
+        else if (view.getId() == R.id.next_button) {
             // Increment index
             if (currIndex == imageIds.length - 1)
                 currIndex = 0;
