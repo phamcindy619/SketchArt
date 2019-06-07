@@ -7,4 +7,6 @@
     <integer name="medium_size">20</integer>
     <dimen name="large_brush">30dp</dimen>
     <integer name="large_size">30</integer>
+
+    <dimen name="paint_size_tab">50dp</dimen>
 </resources>

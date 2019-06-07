@@ -15,15 +15,17 @@
 
         <ImageView
             android:id="@+id/game_logo"
-            android:layout_width="wrap_content"
+            android:layout_width="600dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/gamelogo"
-            android:contentDescription="@string/game_logo" />
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/game_logo"
+            android:scaleType="fitCenter"
+            android:src="@drawable/gamelogo" />
     </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/main_buttons"
-        android:layout_width="200dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:orientation="vertical">
@@ -32,6 +34,7 @@
             android:id="@+id/play_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="20sp"
             android:text="@string/play_button"
             android:onClick="launchPlayActivity" />
 
@@ -39,6 +42,7 @@
             android:id="@+id/gallery_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="20sp"
             android:layout_below="@id/play_button"
             android:text="@string/gallery_button"
             android:onClick="launchGalleryActivity" />
@@ -47,6 +51,7 @@
             android:id="@+id/settings_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="20sp"
             android:layout_below="@id/gallery_button"
             android:text="@string/settings_button"
             android:onClick="launchSettingsActivity" />
@@ -55,6 +60,7 @@
             android:id="@+id/credits_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="20sp"
             android:layout_below="@id/settings_button"
             android:text="@string/credits_button"
             android:onClick="launchCreditsActivity" />
