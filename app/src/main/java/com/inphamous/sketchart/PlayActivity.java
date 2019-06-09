@@ -58,6 +58,7 @@ public class PlayActivity extends Activity implements OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play);
 
+        // Set screen orientation
         if (getResources().getBoolean(R.bool.portrait_only)) {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         }
@@ -101,7 +102,6 @@ public class PlayActivity extends Activity implements OnClickListener {
         artImage = findViewById(R.id.artImage);
 
         // Display the first image upon opening
-        Log.d(LOG_TAG, "Index: " + currIndex);
         artImage.setImageResource(imageIds[currIndex]);
     }
 

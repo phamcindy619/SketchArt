@@ -2,6 +2,7 @@ package com.inphamous.sketchart;
 
 import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.content.Context;
@@ -30,7 +31,6 @@ public class DrawView extends View {
     public DrawView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         setUpDraw();
-        setSaveEnabled(true);
     }
 
     private void setUpDraw() {
@@ -90,8 +90,8 @@ public class DrawView extends View {
                 break;
             default:
                 return false;
-        }
 
+        }
         invalidate();
         return true;
     }
