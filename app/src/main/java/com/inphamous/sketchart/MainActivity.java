@@ -34,12 +34,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void launchSettingsActivity(View view) {
-        Log.d(LOG_TAG, "Settings");
-        Intent intent = new Intent(this, SettingsActivity.class);
-        startActivity(intent);
-    }
-
     public void launchCreditsActivity(View view) {
         Log.d(LOG_TAG, "Credits");
         Intent intent = new Intent(this, CreditsActivity.class);
