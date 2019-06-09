@@ -6,4 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".CreditsActivity">
 
+    <ImageView
+        android:id="@+id/inphamous_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:contentDescription="@string/inphamous_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/inphamous_logo" />
 </android.support.constraint.ConstraintLayout>
