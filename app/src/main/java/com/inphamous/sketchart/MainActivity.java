@@ -28,12 +28,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void launchGalleryActivity(View view) {
-        Log.d(LOG_TAG, "Gallery");
-        Intent intent = new Intent(this, GalleryActivity.class);
-        startActivity(intent);
-    }
-
     public void launchCreditsActivity(View view) {
         Log.d(LOG_TAG, "Credits");
         Intent intent = new Intent(this, CreditsActivity.class);
