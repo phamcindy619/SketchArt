@@ -34,39 +34,29 @@
             android:id="@+id/play_button"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:textSize="20sp"
-            android:layout_margin="5dp"
+            android:layout_marginTop="8dp"
+            android:onClick="launchPlayActivity"
+            android:background="@drawable/oval"
             android:text="@string/play_button"
-            android:onClick="launchPlayActivity" />
-
-        <Button
-            android:id="@+id/gallery_button"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:textSize="20sp"
-            android:layout_margin="5dp"
-            android:layout_below="@id/play_button"
-            android:text="@string/gallery_button"
-            android:onClick="launchGalleryActivity" />
-
-        <Button
-            android:id="@+id/settings_button"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:textSize="20sp"
-            android:layout_margin="5dp"
-            android:layout_below="@id/gallery_button"
-            android:text="@string/settings_button"
-            android:onClick="launchSettingsActivity" />
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/credits_button"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:textSize="20sp"
-            android:layout_margin="5dp"
-            android:layout_below="@id/settings_button"
+            android:layout_below="@id/play_button"
+            android:layout_marginTop="8dp"
+            android:onClick="launchCreditsActivity"
+            android:background="@drawable/oval"
             android:text="@string/credits_button"
-            android:onClick="launchCreditsActivity" />
+            android:textSize="20sp" />
     </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/pencil_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/main_buttons"
+        android:contentDescription="@string/background"
+        android:src="@drawable/pencil" />
 </RelativeLayout>

@@ -21,4 +21,7 @@
 
     <string name="art">Art Image</string>
     <string name="inphamous_logo">inPHAMous Logo</string>
+    <string name="background">Background Image</string>
+    <string name="credits">Designer/Programmer: Cindy Pham</string>
+    <string name="github">Github: https://github.com/phamcindy619</string>
 </resources>

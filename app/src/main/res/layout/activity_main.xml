@@ -32,15 +32,27 @@
             android:id="@+id/play_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/play_button"
-            android:onClick="launchPlayActivity" />
+            android:layout_marginTop="8dp"
+            android:background="@drawable/oval"
+            android:onClick="launchPlayActivity"
+            android:text="@string/play_button" />
 
         <Button
             android:id="@+id/credits_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/play_button"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/oval"
             android:onClick="launchCreditsActivity"
             android:text="@string/credits_button" />
     </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/pencil_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/main_buttons"
+        android:contentDescription="@string/background"
+        android:src="@drawable/pencil" />
 </RelativeLayout>
