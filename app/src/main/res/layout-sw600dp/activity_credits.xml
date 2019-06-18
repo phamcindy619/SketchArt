@@ -55,7 +55,7 @@
         app:layout_constraintTop_toBottomOf="@+id/credits" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/contact_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"

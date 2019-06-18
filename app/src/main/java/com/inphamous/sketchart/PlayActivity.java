@@ -217,7 +217,7 @@ public class PlayActivity extends Activity implements OnClickListener {
         canvas.drawColor(Color.WHITE);
         drawView.draw(canvas);
         // Save to gallery
-        String imageSaved = MediaStore.Images.Media.insertImage(getContentResolver(), bitmap, "SketchArt-" + UUID.randomUUID().toString() + ".jpg", "drawing");
+        String imageSaved = MediaStore.Images.Media.insertImage(getContentResolver(), bitmap,UUID.randomUUID().toString() + ".jpg", "sketchart");
         // Image has been saved successfully
         if (imageSaved != null) {
             Toast savedToast = Toast.makeText(getApplicationContext(), "Drawing saved to Gallery!", Toast.LENGTH_SHORT);
