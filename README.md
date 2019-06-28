@@ -1,2 +1,3 @@
 # Sketch Art
-Drawing app
+## Author: Cindy Pham
+Drawing Android app aimed for children users
