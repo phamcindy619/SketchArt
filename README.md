@@ -1,5 +1,7 @@
 # Sketch Art
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 ## Introduction
 Sketch Art is an Android app, designed for children to practice drawing.
 
