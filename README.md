@@ -1,5 +1,7 @@
 # Sketch Art
-## Author: Cindy Pham
+# Author: Cindy Pham
+
+## Introduction
 Sketch Art is an Android app, designed for children to practice drawing.
 * Developed using Android Studio
 * Scripts in Java
