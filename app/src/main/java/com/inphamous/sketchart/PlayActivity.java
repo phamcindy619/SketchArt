@@ -11,6 +11,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
@@ -49,9 +50,6 @@ public class PlayActivity extends Activity implements OnClickListener {
     private float mediumBrush;
     private float largeBrush;
 
-    // Debug
-    private static final String LOG_TAG = PlayActivity.class.getSimpleName();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,6 +73,7 @@ public class PlayActivity extends Activity implements OnClickListener {
         smallButton = findViewById(R.id.small_brush);
         smallButton.setOnClickListener(this);
         mediumButton = findViewById(R.id.medium_brush);
+        mediumButton.setImageDrawable(getResources().getDrawable(R.drawable.medium_pressed));
         mediumButton.setOnClickListener(this);
         largeButton = findViewById(R.id.large_brush);
         largeButton.setOnClickListener(this);
@@ -195,16 +194,28 @@ public class PlayActivity extends Activity implements OnClickListener {
         else if (view.getId() == R.id.small_brush) {
             drawView.setBrushSize(smallBrush);
             drawView.setLastBrushSize(smallBrush);
+            Log.d("hello", "Small pressed");
+            smallButton.setImageDrawable(getResources().getDrawable(R.drawable.small_pressed));
+            mediumButton.setImageDrawable(getResources().getDrawable(R.drawable.medium));
+            largeButton.setImageDrawable(getResources().getDrawable(R.drawable.large));
         }
         // Set medium brush size
         else if (view.getId() == R.id.medium_brush) {
             drawView.setBrushSize(mediumBrush);
             drawView.setLastBrushSize(mediumBrush);
+            Log.d("hello", "Med pressed");
+            mediumButton.setImageDrawable(getResources().getDrawable(R.drawable.medium_pressed));
+            smallButton.setImageDrawable(getResources().getDrawable(R.drawable.small));
+            largeButton.setImageDrawable(getResources().getDrawable(R.drawable.large));
         }
         // Set large brush size
         else if (view.getId() == R.id.large_brush) {
             drawView.setBrushSize(largeBrush);
             drawView.setLastBrushSize(largeBrush);
+            Log.d("hello", "Large pressed");
+            largeButton.setImageDrawable(getResources().getDrawable(R.drawable.large_pressed));
+            smallButton.setImageDrawable(getResources().getDrawable(R.drawable.small));
+            mediumButton.setImageDrawable(getResources().getDrawable(R.drawable.medium));
         }
     }
 
