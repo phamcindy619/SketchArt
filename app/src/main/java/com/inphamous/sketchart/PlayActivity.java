@@ -11,7 +11,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
@@ -66,6 +65,7 @@ public class PlayActivity extends Activity implements OnClickListener {
         drawView = findViewById(R.id.draw);
         drawView.setBrushSize(mediumBrush);
 
+        // Set up initial brush size and color
         LinearLayout paintLayout = findViewById(R.id.paint_colors);
         currPaint = (ImageButton) paintLayout.getChildAt(0);
         drawView.setColor(currPaint.getTag().toString());
@@ -79,6 +79,7 @@ public class PlayActivity extends Activity implements OnClickListener {
         largeButton = findViewById(R.id.large_brush);
         largeButton.setOnClickListener(this);
 
+        // Initialize brush sizes
         smallBrush = getResources().getInteger(R.integer.small_size);
         mediumBrush = getResources().getInteger(R.integer.medium_size);
         largeBrush = getResources().getInteger(R.integer.large_size);

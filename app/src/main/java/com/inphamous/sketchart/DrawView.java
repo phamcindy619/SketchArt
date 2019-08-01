@@ -2,7 +2,6 @@ package com.inphamous.sketchart;
 
 import android.graphics.Color;
 import android.graphics.PorterDuff;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.content.Context;
@@ -14,7 +13,6 @@ import android.graphics.Path;
 import android.view.MotionEvent;
 
 public class DrawView extends View {
-    private static final String LOG_TAG = PlayActivity.class.getSimpleName();
 
     private Path drawPath;      // Drawing path
     private Paint drawPaint;    // Drawings and Canvas paint
