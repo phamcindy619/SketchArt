@@ -22,7 +22,7 @@ Sketch Art is an Android app, designed for children to practice drawing.
 * ![Adobe Photoshop](https://img.shields.io/badge/adobe%20photoshop-%2331A8FF.svg?style=for-the-badge&logo=adobe%20photoshop&logoColor=white)
 
 ### Installation
-You can download Sketch Art on your Android device through the Google Play store [here](playstore-url), released under inPHAMous Technologies.
+You can download Sketch Art on your Android device through the Google Play store [here][playstore-url], released under inPHAMous Technologies.
 
 ## Credits
 Designed and developed by Cindy Pham.
