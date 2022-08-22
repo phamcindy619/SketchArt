@@ -1,11 +1,13 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
+  <a href="https://play.google.com/store/apps/details?id=com.inphamous.sketchart">
+    <img src="https://github.com/phamcindy619/SketchArt/blob/master/app/src/main/sketchart_launcher-web.png" width="100" height="100">
+  </a>
   <a href="https://github.com/phamcindy619/SketchArt">
-    <img src="https://github.com/phamcindy619/SketchArt/blob/master/app/src/main/sketchart_launcher-web.png" alt="Logo" width="80" height="80">
+    <img src="https://github.com/phamcindy619/SketchArt/blob/master/app/src/main/res/drawable/gamelogo.png">
   </a>
 </div>
-# Sketch Art
 
 ## About the Project
 Sketch Art is an Android app, designed for children to practice drawing.
