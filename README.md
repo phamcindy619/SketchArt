@@ -1,3 +1,7 @@
+<!-- PROJECT SHIELDS -->
+[![MIT License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
+
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
@@ -21,7 +25,7 @@ Sketch Art is an Android app, designed for children to practice drawing.
 You can download Sketch Art on your Android device through the Google Play store, released under inPHAMous Technologies.
 <br />
 <div align="center">
-[![Play Store][https://img.shields.io/badge/Google_Play-414141?style=for-the-badge&logo=google-play&logoColor=white]][https://play.google.com/store/apps/details?id=com.inphamous.sketchart]
+[![Play Store][playstore-shield]][playstore-url]
 </div>
 
 ## Credits
@@ -31,3 +35,11 @@ Designed and developed by Cindy Pham.
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
+
+<!-- MARKDOWN LINKS & IMAGES -->
+[license-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
+[license-url]: https://github.com/phamcindy619/SketchArt/blob/master/LICENSE
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://www.linkedin.com/in/phamcindy619
+[playstore-shield]: https://img.shields.io/badge/Google_Play-414141?style=for-the-badge&logo=google-play&logoColor=white
+[playstore-url]: https://play.google.com/store/apps/details?id=com.inphamous.sketchart
