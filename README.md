@@ -1,6 +1,11 @@
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/phamcindy619/SketchArt">
+    <img src="https://github.com/phamcindy619/SketchArt/blob/master/app/src/main/sketchart_launcher-web.png" alt="Logo" width="80" height="80">
+  </a>
+</div>
 # Sketch Art
-
-[![MIT License][license-shield]][license-url]
 
 ## About the Project
 Sketch Art is an Android app, designed for children to practice drawing.
